@@ -1,12 +1,11 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Scanner;
 
 public class Parity {
     private static final int START_OF_RANGE = 0;
     private static final int END_OF_RANGE = 100;
-    public static void checkParity() {
-        String name = Cli.introduction();
+    public static void checkParity(String name) {
         Scanner input = new Scanner(System.in);
         String answer;
         String correctAnswer;
