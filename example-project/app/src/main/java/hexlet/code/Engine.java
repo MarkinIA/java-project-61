@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import hexlet.code.games.Calculator;
+import hexlet.code.games.GCD;
 import hexlet.code.games.GameEngine;
 import hexlet.code.games.Parity;
 import java.util.Scanner;
@@ -15,6 +16,7 @@ public class Engine {
         stringBuilder.append("1 - Greet\n");
         stringBuilder.append("2 - Even\n");
         stringBuilder.append("3 - Calculator\n");
+        stringBuilder.append("4 - GCD\n");
         stringBuilder.append("0 - Exit\n");
         stringBuilder.append("Your choice: ");
         System.out.print(stringBuilder);
@@ -32,6 +34,11 @@ public class Engine {
                 name = Cli.introduction();
                 Calculator calculator = new Calculator();
                 gamePlay(calculator, name);
+                break;
+            case (4):
+                name = Cli.introduction();
+                GCD gcd = new GCD();
+                gamePlay(gcd, name);
                 break;
             default:
                 break;
