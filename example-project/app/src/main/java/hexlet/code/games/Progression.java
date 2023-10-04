@@ -3,7 +3,7 @@ package hexlet.code.games;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Progression implements GameEngine{
+public class Progression implements GameEngine {
     private String[] numbers = new String[10];
 
     private String concealedNum;

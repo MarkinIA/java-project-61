@@ -1,12 +1,13 @@
 package hexlet.code.games;
+
 public class Parity implements GameEngine {
-    private final int START_OF_RANGE = 0;
-    private final int END_OF_RANGE = 100;
+    private final int startOfRange = 0;
+    private final int endOfRange = 100;
     private int currNum;
     private String correctAnswer;
 
     public String getQuestion() {
-        currNum = START_OF_RANGE + (int) (Math.random() * END_OF_RANGE);
+        currNum = startOfRange + (int) (Math.random() * endOfRange);
         return Integer.toString(currNum);
     }
 

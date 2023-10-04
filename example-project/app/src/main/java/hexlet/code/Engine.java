@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Parity;
+import hexlet.code.games.Progression;
+import hexlet.code.games.GameEngine;
 
 import java.util.Scanner;
 
