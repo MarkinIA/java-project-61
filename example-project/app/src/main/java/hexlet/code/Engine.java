@@ -1,10 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calculator;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Parity;
-import hexlet.code.games.Progression;
-import hexlet.code.games.GameEngine;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -20,6 +16,7 @@ public class Engine {
         stringBuilder.append("3 - Calculator\n");
         stringBuilder.append("4 - GCD\n");
         stringBuilder.append("5 - Progression\n");
+        stringBuilder.append("6 - Prime\n");
         stringBuilder.append("0 - Exit\n");
         stringBuilder.append("Your choice: ");
         System.out.print(stringBuilder);
@@ -51,6 +48,12 @@ public class Engine {
                 Progression progression = new Progression();
                 System.out.println("What number is missing in the progression?");
                 gamePlay(progression, name);
+                break;
+            case (6):
+                name = Cli.introduction();
+                Prime prime = new Prime();
+                System.out.println("Answer 'yes' if given number is prime, Otherwise answer 'no'.");
+                gamePlay(prime, name);
                 break;
             default:
                 break;
