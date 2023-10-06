@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public interface GameEngine {
+public interface Game {
     String getQuestion();
     String getCorrectAnswer();
 }

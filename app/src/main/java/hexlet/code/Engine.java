@@ -60,7 +60,7 @@ public class Engine {
         }
     }
 
-    public static void gamePlay(GameEngine gameEngine, String name) {
+    public static void gamePlay(Game gameEngine, String name) {
         Scanner input = new Scanner(System.in);
         int count;
         String answer;

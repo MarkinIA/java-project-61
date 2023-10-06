@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class Prime implements GameEngine {
+public class Prime implements Game {
     private int currNum;
     @Override
     public String getQuestion() {

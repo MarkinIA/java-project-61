@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class Calculator implements GameEngine {
+public class Calculator implements Game {
     private final int startOfRange = 0;
     private final int endOfRange = 100;
     private final String[] operators = {"+", "-", "*"};

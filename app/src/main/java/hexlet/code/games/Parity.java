@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class Parity implements GameEngine {
+public class Parity implements Game {
     private final int startOfRange = 0;
     private final int endOfRange = 100;
     private int currNum;

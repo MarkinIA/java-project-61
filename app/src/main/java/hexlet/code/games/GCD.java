@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class GCD implements GameEngine {
+public class GCD implements Game {
     private final int startOfRange = 0;
     private final int endOfRange = 100;
     private int firstNumber;
