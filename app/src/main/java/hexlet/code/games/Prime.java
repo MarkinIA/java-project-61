@@ -4,22 +4,37 @@ import java.util.Random;
 
 public class Prime implements Game {
     private int currNum;
-    @Override
-    public String getQuestion() {
-        Random random = new Random();
-        currNum = random.nextInt(1000);
-        return Integer.toString(currNum);
+    private boolean correctAnswer;
+
+    public void getRules() {
+        System.out.println("Answer 'yes' if given number is prime, Otherwise answer 'no'.");
     }
 
     @Override
-    public String getCorrectAnswer() {
+    public void getQuestion() {
+        Random random = new Random();
+        currNum = random.nextInt(1000);
+    }
+
+    public boolean getPrime() {
         int decimal = 2;
         while (currNum % decimal != 0) {
             decimal++;
         }
-        if (decimal == currNum) {
-            return "yes";
-        }
-        return "no";
+        return decimal == currNum;
+    }
+
+    @Override
+    public void getCorrectAnswer() {
+        correctAnswer = getPrime();
+    }
+
+    public String[] getData() {
+        String[] data = new String[2];
+        getQuestion();
+        data[0] = Integer.toString(currNum);
+        getCorrectAnswer();
+        data[1] = correctAnswer ? "yes" : "no";
+        return data;
     }
 }

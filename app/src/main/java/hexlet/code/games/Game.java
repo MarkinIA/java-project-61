@@ -1,6 +1,10 @@
 package hexlet.code.games;
 
 public interface Game {
-    String getQuestion();
-    String getCorrectAnswer();
+    void getQuestion();
+    void getCorrectAnswer();
+
+    void getRules();
+
+    String[] getData();
 }

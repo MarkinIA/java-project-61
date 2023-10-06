@@ -1,26 +1,28 @@
 package hexlet.code.games;
 
+import hexlet.code.GameUtilities;
+
 import java.util.Random;
 
 public class Calculator implements Game {
-    private final int startOfRange = 0;
-    private final int endOfRange = 100;
     private final String[] operators = {"+", "-", "*"};
     private String correctAnswer;
     private int number1;
     private int number2;
-    String operator;
+    private String operator;
 
-    public String getQuestion() {
+
+    public void getRules() {
+        System.out.println("What is the result of the expression?");
+    }
+    public void getQuestion() {
         Random random = new Random();
-        number1 = startOfRange + (int) (Math.random() * endOfRange);
-        number2 = startOfRange + (int) (Math.random() * endOfRange);
+        number1 = GameUtilities.getRandom();
+        number2 = GameUtilities.getRandom();
         operator = operators[random.nextInt(3)];
-
-        return number1 + operator + number2;
     }
 
-    public String getCorrectAnswer() {
+    public void getCorrectAnswer() {
         int result = 0;
         switch (operator) {
             case ("+"):
@@ -33,8 +35,17 @@ public class Calculator implements Game {
                 result = number1 * number2;
                 break;
             default:
-                break;
+                throw new IllegalArgumentException("Incorrect operation presented");
         }
-        return Integer.toString(result);
+        correctAnswer = Integer.toString(result);
+    }
+
+    public String[] getData() {
+        String[] data = new String[2];
+        getQuestion();
+        data[0] = number1 + " " + operator + " " + number2;
+        getCorrectAnswer();
+        data[1] = correctAnswer;
+        return data;
     }
 }

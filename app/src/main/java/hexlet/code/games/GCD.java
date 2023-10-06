@@ -1,26 +1,39 @@
 package hexlet.code.games;
 
+import hexlet.code.GameUtilities;
+
 public class GCD implements Game {
-    private final int startOfRange = 0;
-    private final int endOfRange = 100;
     private int firstNumber;
     private int secondNumber;
 
+    private String correctAnswer;
+
+    public void getRules() {
+        System.out.println("Find the greatest common divisor of given numbers.");
+    }
     @Override
-    public String getQuestion() {
-        firstNumber = startOfRange + (int) (Math.random() * endOfRange);
-        secondNumber = startOfRange + (int) (Math.random() * endOfRange);
-        return firstNumber + " " + secondNumber;
+    public void getQuestion() {
+        firstNumber = GameUtilities.getRandom();
+        secondNumber = GameUtilities.getRandom();
     }
 
     @Override
-    public String getCorrectAnswer() {
+    public void getCorrectAnswer() {
         int decRemains;
         while (secondNumber != 0) {
             decRemains = secondNumber;
             secondNumber = firstNumber % secondNumber;
             firstNumber = decRemains;
         }
-        return Integer.toString(firstNumber);
+        correctAnswer = Integer.toString(firstNumber);
+    }
+
+    public String[] getData() {
+        String[] data = new String[2];
+        getQuestion();
+        data[0] = firstNumber + " " + secondNumber;
+        getCorrectAnswer();
+        data[1] = correctAnswer;
+        return data;
     }
 }

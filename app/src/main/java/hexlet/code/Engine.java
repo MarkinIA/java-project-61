@@ -5,71 +5,60 @@ import hexlet.code.games.*;
 import java.util.Scanner;
 
 public class Engine {
-    public static void gameStart() {
-        Scanner input = new Scanner(System.in);
-        StringBuilder stringBuilder = new StringBuilder();
-        String name;
-        int choice;
-        stringBuilder.append("Please enter the game number and press Enter.\n");
-        stringBuilder.append("1 - Greet\n");
-        stringBuilder.append("2 - Even\n");
-        stringBuilder.append("3 - Calculator\n");
-        stringBuilder.append("4 - GCD\n");
-        stringBuilder.append("5 - Progression\n");
-        stringBuilder.append("6 - Prime\n");
-        stringBuilder.append("0 - Exit\n");
-        stringBuilder.append("Your choice: ");
-        System.out.print(stringBuilder);
-        choice = input.nextInt();
+    public static final int GREET = 1;
+    public static final int EVEN = 2;
+    public static final int CALCULATOR = 3;
+    public static final int GCD = 4;
+    public static final int PROGRESSION = 5;
+    public static final int PRIME = 6;
+    public static void gameStart(int choice) {
         switch (choice) {
-            case (1):
+            case (GREET):
                 Cli.introduction();
                 break;
-            case (2):
-                name = Cli.introduction();
-                Parity parity = new Parity();
-                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-                gamePlay(parity, name);
+            case (EVEN):
+                Even parity = new Even();
+                gamePlay(parity);
                 break;
-            case (3):
-                name = Cli.introduction();
+            case (CALCULATOR):
                 Calculator calculator = new Calculator();
-                System.out.println("What is the result of the expression?");
-                gamePlay(calculator, name);
+                gamePlay(calculator);
                 break;
-            case (4):
-                name = Cli.introduction();
+            case (GCD):
                 GCD gcd = new GCD();
-                System.out.println("Find the greatest common divisor of given numbers.");
-                gamePlay(gcd, name);
+                gamePlay(gcd);
                 break;
-            case (5):
-                name = Cli.introduction();
+            case (PROGRESSION):
                 Progression progression = new Progression();
-                System.out.println("What number is missing in the progression?");
-                gamePlay(progression, name);
+                gamePlay(progression);
                 break;
-            case (6):
-                name = Cli.introduction();
+            case (PRIME):
                 Prime prime = new Prime();
-                System.out.println("Answer 'yes' if given number is prime, Otherwise answer 'no'.");
-                gamePlay(prime, name);
+                gamePlay(prime);
                 break;
             default:
                 break;
         }
     }
 
-    public static void gamePlay(Game gameEngine, String name) {
+    public static void gamePlay(Game gameEngine) {
         Scanner input = new Scanner(System.in);
         int count;
         String answer;
         String correctAnswer;
+        String name;
+        String[] data;
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        name = input.nextLine();
+        System.out.println("Hello, " + name + "!");
+        gameEngine.getRules();
         for (count = 0; count < 3; count++) {
-            System.out.println("Question: " + gameEngine.getQuestion());
+            data = gameEngine.getData();
+            System.out.println("Question: " + data[0]);
             System.out.print("Your answer: ");
             answer = input.nextLine();
-            correctAnswer = gameEngine.getCorrectAnswer();
+            correctAnswer = data[1];
             if (answer.equals(correctAnswer)) {
                 System.out.println("Correct!");
             } else {

@@ -8,8 +8,14 @@ public class Progression implements Game {
 
     private String concealedNum;
 
+    private String correctAnswer;
+
+    public void getRules() {
+        System.out.println("What number is missing in the progression?");
+    }
+
     @Override
-    public String getQuestion() {
+    public void getQuestion() {
         Random random = new Random();
         int number = random.nextInt(100);
         int step = random.nextInt(100);
@@ -21,11 +27,19 @@ public class Progression implements Game {
         concealIndex = random.nextInt(10);
         concealedNum = numbers[concealIndex];
         numbers[concealIndex] = "..";
-        return Arrays.toString(numbers);
     }
 
     @Override
-    public String getCorrectAnswer() {
-        return concealedNum;
+    public void getCorrectAnswer() {
+        correctAnswer = concealedNum;
+    }
+
+    public String[] getData() {
+        String[] data = new String[2];
+        getQuestion();
+        data[0] = Arrays.toString(numbers);
+        getCorrectAnswer();
+        data[1] = correctAnswer;
+        return data;
     }
 }
