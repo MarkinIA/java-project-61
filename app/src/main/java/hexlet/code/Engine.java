@@ -1,6 +1,12 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Game;
+
 
 import java.util.Scanner;
 
@@ -11,6 +17,8 @@ public class Engine {
     public static final int GCD = 4;
     public static final int PROGRESSION = 5;
     public static final int PRIME = 6;
+
+    public static final int AMOUNT_OF_ROUNDS = 3;
     public static void gameStart(int choice) {
         switch (choice) {
             case (GREET):
@@ -53,7 +61,7 @@ public class Engine {
         name = input.nextLine();
         System.out.println("Hello, " + name + "!");
         gameEngine.getRules();
-        for (count = 0; count < 3; count++) {
+        for (count = 0; count < AMOUNT_OF_ROUNDS; count++) {
             data = gameEngine.getData();
             System.out.println("Question: " + data[0]);
             System.out.print("Your answer: ");
@@ -68,7 +76,7 @@ public class Engine {
             }
 
         }
-        if (count == 3) {
+        if (count == AMOUNT_OF_ROUNDS) {
             System.out.println("Congratulations, " + name + "!");
         }
     }

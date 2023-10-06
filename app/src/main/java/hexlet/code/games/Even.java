@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.GameUtilities;
 
-public class Even implements Game {
+public final class Even implements Game {
     private int currNum;
     private boolean correctAnswer;
 

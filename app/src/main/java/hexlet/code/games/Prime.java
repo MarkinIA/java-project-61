@@ -2,9 +2,11 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class Prime implements Game {
+public final class Prime implements Game {
     private int currNum;
     private boolean correctAnswer;
+
+    private static final int RANGE_OF_NUMBERS = 1000;
 
     public void getRules() {
         System.out.println("Answer 'yes' if given number is prime, Otherwise answer 'no'.");
@@ -13,7 +15,7 @@ public class Prime implements Game {
     @Override
     public void getQuestion() {
         Random random = new Random();
-        currNum = random.nextInt(1000);
+        currNum = random.nextInt(RANGE_OF_NUMBERS);
     }
 
     public boolean getPrime() {

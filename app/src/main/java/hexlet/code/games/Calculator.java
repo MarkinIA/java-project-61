@@ -4,8 +4,9 @@ import hexlet.code.GameUtilities;
 
 import java.util.Random;
 
-public class Calculator implements Game {
+public final class Calculator implements Game {
     private final String[] operators = {"+", "-", "*"};
+    private final static int RANGE = 3;
     private String correctAnswer;
     private int number1;
     private int number2;
@@ -19,7 +20,7 @@ public class Calculator implements Game {
         Random random = new Random();
         number1 = GameUtilities.getRandom();
         number2 = GameUtilities.getRandom();
-        operator = operators[random.nextInt(3)];
+        operator = operators[random.nextInt(RANGE)];
     }
 
     public void getCorrectAnswer() {
