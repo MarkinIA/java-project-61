@@ -6,7 +6,7 @@ import java.util.Random;
 
 public final class Calculator implements Game {
     private final String[] operators = {"+", "-", "*"};
-    private final static int RANGE = 3;
+    private static final int RANGE = 3;
     private String correctAnswer;
     private int number1;
     private int number2;

@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.GameUtilities;
-
 import java.util.Random;
 
 public final class Progression implements Game {
