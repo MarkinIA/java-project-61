@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class Prime implements Game {
+public final class Prime implements Game {
     private int currNum;
     private boolean correctAnswer;
 

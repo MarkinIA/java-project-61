@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.GameUtilities;
 
-public class GCD implements Game {
+public final class GCD implements Game {
     private int firstNumber;
     private int secondNumber;
 

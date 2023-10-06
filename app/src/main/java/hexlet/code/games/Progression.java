@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class Progression implements Game {
+public final class Progression implements Game {
 
     private static final int RANGE_OF_NUMBERS = 100;
     private static final int RANGE_OF_ARRAY = 100;
