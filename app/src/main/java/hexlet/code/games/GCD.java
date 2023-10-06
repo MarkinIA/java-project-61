@@ -2,12 +2,13 @@ package hexlet.code.games;
 
 import hexlet.code.GameUtilities;
 
-public final class GCD implements Game {
+public class GCD implements Game {
     private int firstNumber;
     private int secondNumber;
 
     private String correctAnswer;
 
+    @Override
     public void getRules() {
         System.out.println("Find the greatest common divisor of given numbers.");
     }
@@ -28,6 +29,7 @@ public final class GCD implements Game {
         correctAnswer = Integer.toString(firstNumber);
     }
 
+    @Override
     public String[] getData() {
         String[] data = new String[2];
         getQuestion();

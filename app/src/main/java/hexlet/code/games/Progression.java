@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public final class Progression implements Game {
+public class Progression implements Game {
 
     private static final int RANGE_OF_NUMBERS = 100;
     private static final int RANGE_OF_ARRAY = 100;
@@ -13,6 +13,7 @@ public final class Progression implements Game {
 
     private String questionString;
 
+    @Override
     public void getRules() {
         System.out.println("What number is missing in the progression?");
     }
@@ -46,6 +47,7 @@ public final class Progression implements Game {
         correctAnswer = concealedNum;
     }
 
+    @Override
     public String[] getData() {
         String[] data = new String[2];
         getQuestion();
