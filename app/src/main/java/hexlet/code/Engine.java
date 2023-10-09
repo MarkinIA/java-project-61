@@ -1,72 +1,28 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calculator;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
 import hexlet.code.games.Game;
 
 
 import java.util.Scanner;
 
 public class Engine {
-    public static final int GREET = 1;
-    public static final int EVEN = 2;
-    public static final int CALCULATOR = 3;
-    public static final int GCD = 4;
-    public static final int PROGRESSION = 5;
-    public static final int PRIME = 6;
-
     public static final int AMOUNT_OF_ROUNDS = 3;
-    public static void gameStart(int choice) {
-        switch (choice) {
-            case (GREET):
-                Cli.introduction();
-                break;
-            case (EVEN):
-                Even parity = new Even();
-                gamePlay(parity);
-                break;
-            case (CALCULATOR):
-                Calculator calculator = new Calculator();
-                gamePlay(calculator);
-                break;
-            case (GCD):
-                GCD gcd = new GCD();
-                gamePlay(gcd);
-                break;
-            case (PROGRESSION):
-                Progression progression = new Progression();
-                gamePlay(progression);
-                break;
-            case (PRIME):
-                Prime prime = new Prime();
-                gamePlay(prime);
-                break;
-            default:
-                break;
-        }
-    }
-
-    public static void gamePlay(Game gameEngine) {
+    public static final int QUESTION = 0;
+    public static final int ANSWER = 1;
+    public static void playGame(Game game) {
         Scanner input = new Scanner(System.in);
         int count;
-        String answer;
-        String correctAnswer;
-        String name;
-        String[] data;
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        name = input.nextLine();
+        String name = input.nextLine();
         System.out.println("Hello, " + name + "!");
-        gameEngine.getRules();
+        System.out.println(game.getRules());
         for (count = 0; count < AMOUNT_OF_ROUNDS; count++) {
-            data = gameEngine.getData();
-            System.out.println("Question: " + data[0]);
+            String[] data = game.getData();
+            System.out.println("Question: " + data[QUESTION]);
             System.out.print("Your answer: ");
-            answer = input.nextLine();
-            correctAnswer = data[1];
+            String answer = input.nextLine();
+            String correctAnswer = data[ANSWER];
             if (answer.equals(correctAnswer)) {
                 System.out.println("Correct!");
             } else {

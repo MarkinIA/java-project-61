@@ -3,23 +3,14 @@ package hexlet.code.games;
 import java.util.Random;
 
 public final class Prime implements Game {
-    private int currNum;
-    private boolean correctAnswer;
-
     private static final int RANGE_OF_NUMBERS = 1000;
 
     @Override
-    public void getRules() {
-        System.out.println("Answer 'yes' if given number is prime, Otherwise answer 'no'.");
+    public String getRules() {
+        return "Answer 'yes' if given number is prime, Otherwise answer 'no'.";
     }
 
-    @Override
-    public void getQuestion() {
-        Random random = new Random();
-        currNum = random.nextInt(RANGE_OF_NUMBERS);
-    }
-
-    public boolean getPrime() {
+    public boolean isPrime(int currNum) {
         int decimal = 2;
         while (currNum % decimal != 0) {
             decimal++;
@@ -28,17 +19,12 @@ public final class Prime implements Game {
     }
 
     @Override
-    public void getCorrectAnswer() {
-        correctAnswer = getPrime();
-    }
-
-    @Override
     public String[] getData() {
         String[] data = new String[2];
-        getQuestion();
+        Random random = new Random();
+        int currNum = random.nextInt(RANGE_OF_NUMBERS);
         data[0] = Integer.toString(currNum);
-        getCorrectAnswer();
-        data[1] = correctAnswer ? "yes" : "no";
+        data[1] = isPrime(currNum) ? "yes" : "no";
         return data;
     }
 }
