@@ -30,13 +30,13 @@ public class Menu {
         stringBuilder.append("Your choice: ");
         System.out.print(stringBuilder);
         int choice = input.nextInt();
-        gameStart(choice);
+        launchGameByNumber(choice);
     }
 
-    public static void gameStart(int choice) {
+    public static void launchGameByNumber(int choice) {
         switch (choice) {
             case (GREET):
-                Cli.introduction();
+                Cli.showIntro();
                 break;
             case (EVEN):
                 Engine.playGame(new Even());

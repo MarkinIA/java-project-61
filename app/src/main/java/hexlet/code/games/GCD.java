@@ -8,7 +8,7 @@ public final class GCD implements Game {
         return "Find the greatest common divisor of given numbers.";
     }
 
-    public String getCorrectAnswer(int firstNumber, int secondNumber) {
+    public String getGCD(int firstNumber, int secondNumber) {
         while (secondNumber != 0) {
             int decRemains = secondNumber;
             secondNumber = firstNumber % secondNumber;
@@ -23,7 +23,7 @@ public final class GCD implements Game {
         int firstNumber = GameUtilities.getRandom();
         int secondNumber = GameUtilities.getRandom();
         data[0] = firstNumber + " " + secondNumber;
-        data[1] = getCorrectAnswer(firstNumber, secondNumber);
+        data[1] = getGCD(firstNumber, secondNumber);
         return data;
     }
 }

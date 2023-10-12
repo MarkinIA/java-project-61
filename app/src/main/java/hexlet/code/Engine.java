@@ -11,13 +11,12 @@ public class Engine {
     public static final int ANSWER = 1;
     public static void playGame(Game game) {
         Scanner input = new Scanner(System.in);
-        int count;
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String name = input.nextLine();
         System.out.println("Hello, " + name + "!");
         System.out.println(game.getRules());
-        for (count = 0; count < AMOUNT_OF_ROUNDS; count++) {
+        for (int count = 0; count < AMOUNT_OF_ROUNDS; count++) {
             String[] data = game.getData();
             System.out.println("Question: " + data[QUESTION]);
             System.out.print("Your answer: ");
@@ -30,10 +29,10 @@ public class Engine {
                         + correctAnswer + "'\nLet's try again, " + name + "!");
                 break;
             }
+            if (count == 2) {
+                System.out.println("Congratulations, " + name + "!");
+            }
 
-        }
-        if (count == AMOUNT_OF_ROUNDS) {
-            System.out.println("Congratulations, " + name + "!");
         }
     }
 }

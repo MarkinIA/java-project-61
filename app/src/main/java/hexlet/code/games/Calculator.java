@@ -5,7 +5,7 @@ import hexlet.code.GameUtilities;
 import java.util.Random;
 
 public final class Calculator implements Game {
-    private final String[] operators = {"+", "-", "*"};
+    private static final String[] OPERATORS = {"+", "-", "*"};
     private static final int RANGE = 3;
 
 
@@ -14,7 +14,7 @@ public final class Calculator implements Game {
         return "What is the result of the expression?";
     }
 
-    public String getCorrectAnswer(int number1, int number2, String operator) {
+    public String calcExpression(int number1, int number2, String operator) {
         int result;
         switch (operator) {
             case ("+"):
@@ -37,10 +37,10 @@ public final class Calculator implements Game {
         Random random = new Random();
         int number1 = GameUtilities.getRandom();
         int number2 = GameUtilities.getRandom();
-        String operator = operators[random.nextInt(RANGE)];
+        String operator = OPERATORS[random.nextInt(RANGE)];
         String[] data = new String[2];
         data[0] = number1 + " " + operator + " " + number2;
-        data[1] = getCorrectAnswer(number1, number2, operator);
+        data[1] = calcExpression(number1, number2, operator);
         return data;
     }
 }
